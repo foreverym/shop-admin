@@ -2,10 +2,18 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.shop</groupId>
+	<groupId>com.wy.shop</groupId>
 	<artifactId>shop-admin</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+
+    <modules>
+        <module>shop-admin-starter</module>
+		<module>shop-admin-common</module>
+        <module>shop-admin-facade</module>
+        <module>shop-admin-service</module>
+		<module>shop-admin-dao</module>
+	</modules>
+    <packaging>pom</packaging>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
