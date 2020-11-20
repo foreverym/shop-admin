@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
+
 
 @RestController
 @RequestMapping("/admin")
@@ -19,13 +21,17 @@ public class AdminController {
 
     @Autowired
     private AdminService adminService;
+    @Autowired
+    private AnimalFactoryBean animalFactoryBean;
 
     @GetMapping("/getAdmin")
     @ResponseBody
-    public Order getAdmin() {
+    public void getAdmin() throws Exception {
         log.info(">>>>>>>>>>>>>>>>>>>>>执行了" );
-        Order order = adminService.getOrder();
-        return order;
+//        Order order = adminService.getOrder();
+        Animal animal = animalFactoryBean.getObject();
+        animal.move();
+//        return order;
     }
 
 }
