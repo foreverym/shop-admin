@@ -2,6 +2,7 @@ package com.wy.shop.controller;
 
 import com.wy.shop.entity.Order;
 import com.wy.shop.service.AdminService;
+import com.wy.shop.service.quartz.MyScheduler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,8 @@ public class AdminController {
     private AdminService adminService;
     @Autowired
     private AnimalFactoryBean animalFactoryBean;
+    @Autowired
+    private MyScheduler myScheduler;
 
     @GetMapping("/getAdmin")
     @ResponseBody
@@ -32,6 +35,7 @@ public class AdminController {
         Animal animal = animalFactoryBean.getObject();
         animal.move();
 //        return order;
+        myScheduler.doScheduleTask();
     }
 
 }
