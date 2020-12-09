@@ -12,6 +12,7 @@
         <module>shop-admin-facade</module>
         <module>shop-admin-service</module>
 		<module>shop-admin-dao</module>
+		<module>shop-admin-facadeimpl</module>
 	</modules>
     <packaging>pom</packaging>
 
@@ -107,6 +108,20 @@
 			<artifactId>quartz</artifactId>
 			<version>2.3.0</version>
 		</dependency>
+
+		<!--ActiveMq-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-activemq</artifactId>
+			<version>1.5.0.RELEASE</version>
+		</dependency>
+		<!--消息队列连接池-->
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-pool</artifactId>
+			<version>5.15.0</version>
+		</dependency>
+
 
 	</dependencies>
 
