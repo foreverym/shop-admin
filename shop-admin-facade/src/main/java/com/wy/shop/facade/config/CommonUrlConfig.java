@@ -15,7 +15,7 @@ public class CommonUrlConfig {
     public static final String INDEX_URL_PREFIX = "/index";
 
     /** */
-    public static final String URL_FGDS_CON_DSD_EXPORT_QUERY_LIST = "/con/dsd/export/query/list";
+    public static final String URL_INDEX_QUERY_PANEL_INFO = "/panel";
 
     /** */
     public static final String URL_FGDS_SOR_INV_EXPORT_QUERY_LIST = "/sor/inv/export/query/list";

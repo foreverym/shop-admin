@@ -9,4 +9,5 @@ package com.wy.shop.facade.response;
  * 对vo的封装
  */
 public class IndexResponse {
+
 }

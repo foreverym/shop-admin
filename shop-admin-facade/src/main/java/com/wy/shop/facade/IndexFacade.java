@@ -1,6 +1,7 @@
 package com.wy.shop.facade;
 
 
+import com.wy.shop.common.result.Result;
 import com.wy.shop.facade.domain.IndexVo;
 import com.wy.shop.facade.request.IndexRequest;
 
@@ -29,7 +30,7 @@ public interface IndexFacade {
      *         --taxRate<br>
      *         --taxDesc<br>
      */
-    public IndexVo queryIndexInfo(IndexRequest indexRequest);
+    public Result<IndexVo> queryIndexPanelInfo();
 
 
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wy.shop.dao.mapper.AdminMapper">
+
+
+    <resultMap id="BaseResultMap" type="com.wy.shop.dao.entity.Admin">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="password" jdbcType="VARCHAR" property="password" />
+        <result column="password_salt" jdbcType="VARCHAR" property="passwordSalt" />
+        <result column="last_login_ip" jdbcType="VARCHAR" property="lastLoginIp" />
+        <result column="last_login_time" jdbcType="BIGINT" property="lastLoginTime" />
+        <result column="is_delete" jdbcType="INTEGER" property="is_delete" />
+    </resultMap>
+
+    <sql id="Check_Login_Column">
+        id,username,password
+    </sql>
+
+
+    <select id="queryLoginAdmin" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Check_Login_Column" />
+        FROM hiolabs_admin HA
+        WHERE HA.username =
+    </select>
+</mapper>
