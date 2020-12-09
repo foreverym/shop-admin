@@ -35,9 +35,9 @@ public final class DateUtil
     public static final String FULLY_MONTH_MMMM = "MMMM";
     public static final String DATE_FORMATE_MMMDDYYYY = "MMM dd, yyyy";
 
-    private static final Logger logger = LoggerFactory.getLogger(com.pracbiz.pbx.b2b.common.util.DateUtil.class);
+    private static final Logger logger = LoggerFactory.getLogger(DateUtil.class);
 
-    private static com.pracbiz.pbx.b2b.common.util.DateUtil instance;
+    private static DateUtil instance;
 
 
     private DateUtil()
@@ -45,13 +45,13 @@ public final class DateUtil
     }
 
 
-    public static com.pracbiz.pbx.b2b.common.util.DateUtil getInstance()
+    public static DateUtil getInstance()
     {
-        synchronized (com.pracbiz.pbx.b2b.common.util.DateUtil.class)
+        synchronized (DateUtil.class)
         {
             if (instance == null)
             {
-                instance = new com.pracbiz.pbx.b2b.common.util.DateUtil();
+                instance = new DateUtil();
             }
         }
 
@@ -566,7 +566,7 @@ public final class DateUtil
         calendar1.setTime(inDate);
         calendar1.add(Calendar.WEEK_OF_MONTH, -weeks);
         calendar1.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
-        return com.pracbiz.pbx.b2b.common.util.DateUtil.getInstance().getFirstTimeOfDay(calendar1.getTime());
+        return DateUtil.getInstance().getFirstTimeOfDay(calendar1.getTime());
     }
 
 
@@ -577,7 +577,7 @@ public final class DateUtil
         calendar1.setTime(inDate);
         calendar1.add(Calendar.WEEK_OF_MONTH, -weeks);
         calendar1.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
-        return com.pracbiz.pbx.b2b.common.util.DateUtil.getInstance().getLastTimeOfDay(calendar1.getTime());
+        return DateUtil.getInstance().getLastTimeOfDay(calendar1.getTime());
     }
 
 
