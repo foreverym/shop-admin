@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wy.shop.dao.mapper.UserMapper">
+
+
+    <resultMap id="IndexMainResultMap" type="com.wy.shop.dao.entity.UserIndexMain">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="nickname" jdbcType="VARCHAR" property="nickName"/>
+        <result column="avatar" jdbcType="VARCHAR" property="avatar"/>
+        <result column="gender" jdbcType="INTEGER" property="gender"/>
+        <result column="last_login_time" jdbcType="INTEGER" property="last_login_time"/>
+        <result column="register_time" jdbcType="INTEGER" property="register_time"/>
+    </resultMap>
+
+    <sql id="Index_Main_Column_List">
+        id,nickName,avatar,gender,last_login_time,register_time
+    </sql>
+
+    <select id="queryUserCount" resultType="java.lang.Integer">
+        SELECT
+        COUNT(*)
+        FROM hiolabs_user
+    </select>
+
+    <select id="queryUserList" resultMap="IndexMainResultMap">
+        SELECT
+        <include refid="Index_Main_Column_List"/>
+        FROM hiolabs_user
+    </select>
+
+</mapper>

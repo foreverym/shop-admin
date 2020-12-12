@@ -1,5 +1,6 @@
 package com.wy.shop.dao.mapper;
 
+import com.wy.shop.dao.entity.Admin;
 import com.wy.shop.dao.entity.AdminLogin;
 
 /**
@@ -8,6 +9,6 @@ import com.wy.shop.dao.entity.AdminLogin;
  */
 public interface AdminMapper {
 
-    public AdminLogin queryLoginAdmin();
+    public Admin queryLoginAdmin(String username);
 
 }

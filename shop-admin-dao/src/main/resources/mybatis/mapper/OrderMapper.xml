@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wy.shop.dao.mapper.OrderMapper">
+
+<!--    <resultMap id="BaseResultMap" type="">-->
+<!--        <id column="id" jdbcType="INTEGER" property="id"/>-->
+<!--        <result column="url" jdbcType="VARCHAR" property="url"/>-->
+<!--    </resultMap>-->
+
+    <sql id="Base_Column_List">
+    </sql>
+
+    <select id="queryPrepareDeliveryOrder" resultType="java.lang.Integer">
+        SELECT
+        COUNT(*)
+        FROM hiolabs_order
+        WHERE order_status=201
+    </select>
+
+    <select id="queryIndexMainOrderInfo" resultType="com.wy.shop.dao.entity.OrderIndexMain">
+        SELECT *
+         FROM
+        (SELECT COUNT(id) AS addOrderNum,ROUND(SUM(actual_price),2) AS addOrderSum FROM hiolabs_order) AS T1 JOIN
+        (SELECT COUNT(id) AS payOrderNum,ROUND(SUM(actual_price),2) AS payOrderSum FROM hiolabs_order WHERE order_status>=201) AS T2 JOIN
+        (SELECT COUNT(id) AS addCart  FROM hiolabs_cart WHERE is_delete=0) T3
+    </select>
+
+
+</mapper>

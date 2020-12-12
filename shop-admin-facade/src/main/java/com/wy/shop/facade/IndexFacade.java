@@ -4,20 +4,22 @@ package com.wy.shop.facade;
 import com.wy.shop.common.result.Result;
 import com.wy.shop.facade.domain.IndexVo;
 import com.wy.shop.facade.request.IndexRequest;
+import com.wy.shop.facade.response.IndexMainResponse;
 
 public interface IndexFacade {
 
     /**
      *
-     * 根据国家和税的种类获取政府支持的税号<br>
+     * 授权登录
      *
-     * @see com.pracbiz.pbx.b2b.facade.tax.common.config.TaxCommonUrlConfig#URL_COMM_TAX_GOV_QUERY_LIST
+     * @see com.wy.shop.facade.config.CommonUrlConfig#URL_AUTH_CHECK_LOGIN
      *
      * @author
      * @see com.wy.shop.facade.request.IndexRequest
-     * @param indexRequest <br>
+     * @param request <br>
      *            ctryCode (required)<br>
      *            taxType (required)<br>
+     * @param token
      * @see com.wy.shop.facade.domain.IndexVo
      * @return 根据接口文档定义的JSON格式响应信息<br>
      *         retCode(返回码)<br>
@@ -25,12 +27,15 @@ public interface IndexFacade {
      *         retCode = 100001 Invalid Parameter<br>
      *         retCode = 999999 System Error<br>
      *         retMsg<br>
-     *         list<br>
+     *         response<br>
      *         --taxCode<br>
      *         --taxRate<br>
      *         --taxDesc<br>
      */
     public Result<IndexVo> queryIndexPanelInfo();
+
+
+    public Result<IndexMainResponse> queryIndexMainInfo(Integer pindex);
 
 
 }

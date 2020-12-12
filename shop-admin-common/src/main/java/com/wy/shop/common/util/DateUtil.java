@@ -904,16 +904,19 @@ public final class DateUtil
         return getInstance().convertStringToDate(inValue_, DEFAULT_DATE_FORMAT + " HH:mm:ss");
     }
 
-    // public static void main(String[] args)
-    // {
-    // System.out.println(DateUtil.getInstance().getCurrentFirstDayOfMonth());
-    // System.out.println(DateUtil.getInstance().getCurrentLastDayOfMonth());
-    // System.out.println(DateUtil.getInstance().convertStringToDate("12/31/2013
-    // 14:12:11", DateUtil.DATE_FORMAT_MMDDYYYYHHMMSS));
-    // System.out.println(DateUtil.getInstance().getDistanceMins(DateUtil.getInstance().convertStringToDate("2014-08-21
-    // 15:11:31", EBXML_DATE_FORMAT_YYYYMMDDHHMMSS),
-    // DateUtil.getInstance().convertStringToDate("2014-08-21 14:11:31",
-    // EBXML_DATE_FORMAT_YYYYMMDDHHMMSS)));
-    // }
+    public long getTodayDateTime() {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy:MM:dd");
+        String formatDate = simpleDateFormat.format(new Date());
+        String[] splitDate = formatDate.split(":");
+        int year = Integer.valueOf(splitDate[0]);;
+        int month = Integer.valueOf(splitDate[1]);
+        int day = Integer.valueOf(splitDate[2]);
+        Date date = new Date(year, month, day);
+        long time = date.getTime();
+        return time/1000;
+    }
+
+
+
 
 }

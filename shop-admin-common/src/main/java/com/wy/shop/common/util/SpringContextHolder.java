@@ -71,4 +71,5 @@ public class SpringContextHolder implements ApplicationContextAware
                     "Propertity 'applicaitonContext' uninitialized, please define the bean of SpringContextHolder in the config fiel applicationContext.xml first ");
         }
     }
+
 }

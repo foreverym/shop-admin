@@ -6,7 +6,9 @@ package com.wy.shop.dao.entity;
  */
 public class AdminLogin {
 
+    private Integer id;
     private String username;
     private String password;
+    private String passwordSalt;
 
 }

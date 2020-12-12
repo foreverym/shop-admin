@@ -14,14 +14,17 @@
     </resultMap>
 
     <sql id="Check_Login_Column">
-        id,username,password
+        id,username,password,password_salt,last_login_ip,last_login_time,is_delete
     </sql>
 
 
-    <select id="queryLoginAdmin" resultMap="BaseResultMap">
+
+
+    <select id="queryLoginAdmin" parameterType="java.lang.String" resultMap="BaseResultMap">
         SELECT
         <include refid="Check_Login_Column" />
         FROM hiolabs_admin HA
-        WHERE HA.username =
+        WHERE HA.username = #{username}
     </select>
+
 </mapper>

@@ -1,5 +1,7 @@
 package com.wy.shop.dao;
 
+import com.wy.shop.common.exception.DaoException;
+import com.wy.shop.dao.entity.Admin;
 import com.wy.shop.dao.entity.AdminLogin;
 
 /**
@@ -8,6 +10,6 @@ import com.wy.shop.dao.entity.AdminLogin;
  */
 public interface AdminDao {
 
-    public AdminLogin queryLoginAdmin();
+    public Admin queryLoginAdmin(String username) throws DaoException;
 
 }
