@@ -71,9 +71,6 @@ public class IndexFacadeImpl implements IndexFacade {
         }).collect(Collectors.toList());
         BeanUtils.copyProperties(indexMainBo, indexMainResponse);
         indexMainResponse.setNewData(collect);
-        logger.info(">>>>>>>>>>>>>>>>");
-        logger.info("???????????????");
-        logger.info("???");
         return Result.success(indexMainResponse);
     }
 
