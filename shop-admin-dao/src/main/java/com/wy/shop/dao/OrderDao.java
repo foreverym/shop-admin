@@ -1,6 +1,8 @@
 package com.wy.shop.dao;
 
+import com.wy.shop.dao.entity.OrderExt;
 import com.wy.shop.dao.entity.OrderIndexMain;
+import java.util.List;
 
 /**
  * @author : WangYB
@@ -11,5 +13,7 @@ public interface OrderDao {
     public Integer queryPrepareDeliveryOrder();
 
     public OrderIndexMain queryIndexMainOrderInfo();
+
+    public List<OrderExt> queryPageOrder();
 
 }

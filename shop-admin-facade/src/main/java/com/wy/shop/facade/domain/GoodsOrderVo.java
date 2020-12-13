@@ -1,14 +1,13 @@
-package com.wy.shop.dao.entity;
+package com.wy.shop.facade.domain;
 
 import java.math.BigDecimal;
 import lombok.Data;
 
 /**
- * @author : WangYB
- * @time: 2020/12/12  16:35
+ * @author wangyibo
  */
 @Data
-public class GoodsOrder {
+public class GoodsOrderVo {
 
     private String goods_name;
     private String goods_aka;

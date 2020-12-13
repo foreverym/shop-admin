@@ -64,11 +64,16 @@
     </sql>
 
     <select id="queryPageOrder" resultMap="ExtOrderResultMap">
-        SELECT HO.*,
-
-        FROM hiolabs_order HO JOIN
-        hiolabs_order_express HOE JOIN
-        hiolabs_order_goods JOIN
-        hiolabs_user
+        SELECT HO.*,CONCAT(HOE.shipper_name,HOE.logistic_code) expressInfo,
+				HU.nickname,HU.name,HU.mobile,HU.avatar,
+				HOG.id,HOG.goods_name,HOG.goods_aka,HOG.list_pic_url,HOG.number,HOG.goods_specifition_name_value,HOG.retail_price
+        FROM
+        hiolabs_order HO
+				INNER JOIN hiolabs_order_express HOE
+				ON HO.id = HOE.order_id
+				INNER JOIN hiolabs_user HU
+				ON HO.user_id = HU.id
+				INNER JOIN hiolabs_order_goods HOG
+				ON HO.id = HOG.order_id
     </select>
 </mapper>

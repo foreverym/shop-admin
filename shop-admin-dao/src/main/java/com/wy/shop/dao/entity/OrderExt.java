@@ -1,11 +1,14 @@
 package com.wy.shop.dao.entity;
 
+import java.math.BigDecimal;
 import java.util.List;
+import lombok.Data;
 
 /**
  * @author : WangYB
  * @time: 2020/12/12  16:20
  */
+@Data
 public class OrderExt {
 
 
@@ -71,13 +74,13 @@ public class OrderExt {
     private String mobile;
     private String postscript;
     private Object admin_memo;
-    private Integer shipping_fee;
+    private BigDecimal shipping_fee;
     private String pay_name;
     private String pay_id;
-    private Double change_price;
-    private Double actual_price;
-    private Double order_price;
-    private Double goods_price;
+    private BigDecimal change_price;
+    private BigDecimal actual_price;
+    private BigDecimal order_price;
+    private BigDecimal goods_price;
     private String add_time;
     private String pay_time;
     private Integer shipping_time;

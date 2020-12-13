@@ -1,6 +1,7 @@
 package com.wy.shop.dao.mapper;
 
 import com.wy.shop.dao.entity.OrderExt;
+import java.util.List;
 
 /**
  * @author : WangYB
@@ -8,6 +9,6 @@ import com.wy.shop.dao.entity.OrderExt;
  */
 public interface OrderMapperExt {
 
-    public OrderExt queryPageOrder();
+    public List<OrderExt> queryPageOrder();
 
 }
