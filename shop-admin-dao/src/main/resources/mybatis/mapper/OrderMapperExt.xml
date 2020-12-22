@@ -66,7 +66,8 @@
     <select id="queryPageOrder" resultMap="ExtOrderResultMap">
         SELECT HO.*,CONCAT(HOE.shipper_name,HOE.logistic_code) expressInfo,
 				HU.nickname,HU.name,HU.mobile,HU.avatar,
-				HOG.id,HOG.goods_name,HOG.goods_aka,HOG.list_pic_url,HOG.number,HOG.goods_specifition_name_value,HOG.retail_price
+				HOG.id,HOG.goods_name,HOG.goods_aka,HOG.list_pic_url,
+				HOG.number,HOG.goods_specifition_name_value,HOG.retail_price
         FROM
         hiolabs_order HO
 				INNER JOIN hiolabs_order_express HOE
@@ -76,4 +77,5 @@
 				INNER JOIN hiolabs_order_goods HOG
 				ON HO.id = HOG.order_id
     </select>
+
 </mapper>

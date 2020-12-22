@@ -37,4 +37,9 @@ public class OrderDaoImpl implements OrderDao {
         return orderMapperExt.queryPageOrder();
     }
 
+    @Override
+    public Integer queryOrderCount() {
+        return orderMapper.queryOrderCount();
+    }
+
 }

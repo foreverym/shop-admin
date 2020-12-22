@@ -16,4 +16,6 @@ public interface OrderDao {
 
     public List<OrderExt> queryPageOrder();
 
+    public Integer queryOrderCount();
+
 }

@@ -25,5 +25,10 @@
         (SELECT COUNT(id) AS addCart  FROM hiolabs_cart WHERE is_delete=0) T3
     </select>
 
+    <select id="queryOrderCount" resultType="java.lang.Integer">
+        SELECT COUNT(id) FROM hiolabs_order WHERE is_delete=0
+    </select>
+
+
 
 </mapper>

@@ -17,4 +17,26 @@
         WHERE is_on_sale=1 AND is_delete=0
     </select>
 
+    <insert id="batchInsertGoods" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="id">
+
+        INSERT INTO hiolabs_goods
+        (category_id, is_on_sale, name, goods_number, sell_volume,
+        keywords, retail_price, min_retail_price, cost_price,
+        min_cost_price,goods_brief,goods_desc,sort_order,is_index,is_new,
+        goods_unit, https_pic_url, list_pic_url, freight_template_id, freight_type)
+        VALUES
+        <foreach collection="list" item="goods" separator=",">
+            (#{goods.category_id}, #{goods.is_on_sale}, #{goods.name}, #{goods.goods_number}, #{goods.sell_volume},
+            #{goods.keywords}, #{goods.retail_price}, #{goods.min_retail_price}, #{goods.cost_price},
+            #{goods.min_cost_price},#{goods.goods_brief},#{goods.goods_desc},#{goods.sort_order},#{goods.is_index},#{goods.is_new},
+            #{goods.goods_unit}, #{goods.https_pic_url}, #{goods.list_pic_url}, #{goods.freight_template_id}, #{goods.freight_type})
+        </foreach>
+    </insert>
+
+
+    <select id="queryGoodsList" resultType="com.wy.shop.dao.entity.Goods">
+        SELECT * FROM hiolabs_goods_sekkill WHERE is_on_sale = 1
+    </select>
+
+
 </mapper>

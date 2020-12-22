@@ -15,12 +15,14 @@ public class CommonUrlConfig {
     public static final String INDEX_URL_PREFIX = "/index";
     public static final String AUTH_URL_PREFIX = "/auth";
     public static final String ORDER_URL_PREFIX = "/order";
+    public static final String GOODS_URL_PREFIX = "/goods";
 
     /** */
     public static final String URL_INDEX_QUERY_PANEL_INFO = "/panel";
     public static final String URL_INDEX_MAIN_INFO = "/main";
     public static final String URL_AUTH_CHECK_LOGIN = "/login";
     public static final String URL_ORDER_MAIN_INFO = "/main";
+    public static final String URL_GOODS_BATCH_UPLOAD = "/uploadGoods";
 
     /** */
     public static final String URL_FGDS_SOR_INV_EXPORT_QUERY_LIST = "/sor/inv/export/query/list";

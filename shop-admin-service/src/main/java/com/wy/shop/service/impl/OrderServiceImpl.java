@@ -28,11 +28,19 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<OrderPageBo> queryPageOrder() {
         List<OrderExt> orderExtList = orderDao.queryPageOrder();
+        logger.info(">>>>>>orderExtList:{}.",orderExtList);
         List<OrderPageBo> orderPageBoList = orderExtList.stream().map(orderExt -> {
             OrderPageBo orderPageBo = new OrderPageBo();
             BeanUtils.copyProperties(orderExt, orderPageBo);
             return orderPageBo;
         }).collect(Collectors.toList());
+        logger.info(">>>>>>orderPageBoList:{}.",orderPageBoList);
         return orderPageBoList;
     }
+
+    @Override
+    public Integer queryOrderCount() {
+        return orderDao.queryOrderCount();
+    }
+
 }

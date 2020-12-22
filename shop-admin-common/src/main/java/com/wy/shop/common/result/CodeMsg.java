@@ -24,6 +24,7 @@ public class CodeMsg {
     public static CodeMsg PRIMARY_ERROR = new CodeMsg(500216, "主键冲突");
 
     //商品模块 5003XX
+    public static CodeMsg INSERT_GOODS_FAILURE = new CodeMsg(500310, "批量上传商品失败");
 
     //订单模块 5004XX
     public static CodeMsg ORDER_NOT_EXIST = new CodeMsg(500400, "订单不存在");

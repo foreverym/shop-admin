@@ -51,7 +51,7 @@ public class OrderPageBo {
     private String full_region;
     private String order_status_text;
     private String expressInfo;
-    private UserOrder userInfo;
-    private List<GoodsOrder> goodsList;
+    private UserOrderBo userInfo;
+    private List<GoodsOrderBo> goodsList;
 
 }

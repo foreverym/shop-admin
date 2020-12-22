@@ -11,4 +11,6 @@ public interface OrderService {
 
     public List<OrderPageBo> queryPageOrder();
 
+    public Integer queryOrderCount();
+
 }

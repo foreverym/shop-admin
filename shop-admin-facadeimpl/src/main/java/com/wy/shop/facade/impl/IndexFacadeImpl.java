@@ -1,6 +1,7 @@
 package com.wy.shop.facade.impl;
 
 import com.wy.shop.common.result.Result;
+import com.wy.shop.common.util.PageBean;
 import com.wy.shop.facade.IndexFacade;
 import com.wy.shop.facade.config.CommonUrlConfig;
 import com.wy.shop.facade.domain.IndexMainVo;

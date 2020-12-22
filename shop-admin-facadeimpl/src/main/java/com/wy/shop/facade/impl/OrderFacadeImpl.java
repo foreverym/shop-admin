@@ -1,15 +1,18 @@
 package com.wy.shop.facade.impl;
 
 import com.wy.shop.common.result.Result;
+import com.wy.shop.common.util.PageBean;
 import com.wy.shop.facade.OrderFacade;
 import com.wy.shop.facade.config.CommonUrlConfig;
 import com.wy.shop.facade.request.OrderMainRequest;
 import com.wy.shop.facade.response.OrderPageResponse;
 import com.wy.shop.service.OrderService;
 import com.wy.shop.service.bo.OrderPageBo;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,15 +36,21 @@ public class OrderFacadeImpl implements OrderFacade {
     @GetMapping(CommonUrlConfig.URL_ORDER_MAIN_INFO)
     @ResponseBody
     @Override
-    public Result<List<OrderPageResponse>> queryPageOrder(@RequestParam Integer page,
-                                                          @RequestParam String logistic_code,
-                                                          @RequestParam Integer status) {
+    public Result<PageBean> queryPageOrder(@RequestParam Integer page,
+                                           @RequestParam String logistic_code,
+                                           @RequestParam Integer status) {
         List<OrderPageBo> orderPageBoList = orderService.queryPageOrder();
-        List<OrderPageResponse> orderPageResponseList = orderPageBoList.stream().map(orderExt -> {
+        List<OrderPageResponse> orderPageResponseList = orderPageBoList.stream().map(orderPageBo -> {
             OrderPageResponse orderPageResponse = new OrderPageResponse();
-            BeanUtils.copyProperties(orderExt, orderPageResponse);
+            BeanUtils.copyProperties(orderPageBo, orderPageResponse);
             return orderPageResponse;
         }).collect(Collectors.toList());
-        return Result.success(orderPageResponseList);
+        PageBean pageBean = new PageBean();
+        int count = orderService.queryOrderCount();
+        pageBean.setData(orderPageResponseList);
+        pageBean.setCount(count);
+        pageBean.setPageSize(10);
+        pageBean.setCurrentPage(page);
+        return Result.success(pageBean);
     }
 }
